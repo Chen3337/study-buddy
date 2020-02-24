@@ -4,17 +4,12 @@ const ShoppingList = require('../models/vocab');
 const User = require('../models/passport/user');
 const passport = require('../models/passport/passportuser');
 
-router.get('/hello', (req, res) => {
-    res.json([{hello:"hi"}]);
-})
-
-
 router.post('/', (req, res) => {
-    console.log('user signup');
-
+    // add a new user route
     const { username, password } = req.body
-    // ADD VALIDATION
+    // ADD VALIDATION 
     User.findOne({ username: username }, (err, user) => {
+        // see if the username already taken
         if (err) {
             console.log('User.js post error: ', err)
         } else if (user) {
@@ -23,10 +18,12 @@ router.post('/', (req, res) => {
             })
         }
         else {
+            // create new user
             const newUser = new User({
                 username: username,
                 password: password
             })
+            // schema function define in user.js checks for password change to hash
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
                 res.json(savedUser)
@@ -34,17 +31,11 @@ router.post('/', (req, res) => {
         }
     })
 })
-
+// log in
 router.post(
     '/login',
-    function (req, res, next) {
-        console.log('routes/user.js, login, req.body: ');
-        console.log(req.body)
-        next()
-    },
     passport.authenticate('local'),
     (req, res) => {
-        console.log('logged in', req.user);
         var userInfo = {
             username: req.user.username
         };
@@ -53,8 +44,6 @@ router.post(
 )
 
 router.get('/', (req, res, next) => {
-    console.log('===== user!!======')
-    console.log(req.user)
     if (req.user) {
         res.json({ user: req.user })
     } else {
