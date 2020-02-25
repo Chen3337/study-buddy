@@ -1,11 +1,47 @@
 const express = require('express');
 const router = express.Router();
-const ShoppingList = require('../models/vocab');
+const VocabList = require('../models/vocab');
 const User = require('../models/passport/user');
 const passport = require('../models/passport/passportuser');
-
+// adding new vocabList
+// need to send in a object {name: ""} need to be login
+router.post("/newlist", (req, res) => {
+    var listName = req.body.name;
+    var newList = {
+        user: req.user.username,
+        name: listName,
+        vocab: []
+    }
+    if (req.user.username && listName) {
+        VocabList.create(newList)
+            .then(data => res.json(data))
+            .catch(next);
+    }
+    else{
+        res.json({ error: "The item field is empty" })
+    }
+});
+// adding new vocab words after making a new vocablist
+// need to send in a object with the vocablist id and
+//  the words with definition in a array of objects {id: "", vocab: [{word: "", definition: ""}]}
+router.post("/newvocab", (req, res) => {
+    var newListId = req.body.id;
+    var {word, definition} = req.body.vocab;
+    VocabList.findByIdAndUpdate(
+        newListId,
+        {$push: {"vocab": {word: word, definition: definition}}},
+        function(err, result) {
+            if(err){
+                res.json(err);
+            }
+            else{
+                res.json(result);
+            }
+        }
+    );
+});
+// add a new user route
 router.post('/', (req, res) => {
-    // add a new user route
     const { username, password } = req.body
     // ADD VALIDATION 
     User.findOne({ username: username }, (err, user) => {
@@ -31,7 +67,7 @@ router.post('/', (req, res) => {
         }
     })
 })
-// log in
+// log in and check the password
 router.post(
     '/login',
     passport.authenticate('local'),
@@ -42,7 +78,7 @@ router.post(
         res.send(userInfo);
     }
 )
-
+// get the username
 router.get('/', (req, res, next) => {
     if (req.user) {
         res.json({ user: req.user })
@@ -50,7 +86,7 @@ router.get('/', (req, res, next) => {
         res.json({ user: null })
     }
 })
-
+// logout
 router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()
