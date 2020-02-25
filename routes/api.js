@@ -42,11 +42,34 @@ router.put("/newvocab", (req, res) => {
     );
 });
 // gets all the information about a set of vocab words
+// need id in url
 router.get("/vocablistinfo/:id", (req, res) => {
     var id = req.params.id;
     VocabList.findById(id)
         .then(data => res.json(data))
         .catch(console.log("Error !!!!"));
+});
+// deleting a word from a set of vocabs
+router.delete("/vocabword", (req, res) => {
+    var { vocabListId, vocabWordId } = req.body;
+    VocabList.update({ _id: vocabListId }, { $pull: { vocab: { _id: vocabWordId } } })
+        .then(data => res.json(data))
+        .catch(console.log("Error !!!!"));
+});
+// if there is a user name in the url it will return all the vocab list made by that user
+// if there is no user name in the url it will return all vocab list in the database
+router.get("/allvocablist/:user", (req, res) => {
+    var user = req.params.user;
+    if (name) {
+        VocabList.find({user : user})
+            .then(data => res.json(data))
+            .catch(console.log("Error !!!!"));
+    }
+    else {
+        VocabList.find({})
+            .then(data => res.json(data))
+            .catch(console.log("Error !!!!"));
+    }
 });
 
 
