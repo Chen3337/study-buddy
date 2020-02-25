@@ -6,6 +6,7 @@ const passport = require('../models/passport/passportuser');
 // adding new vocabList
 // need to send in a object {name: ""} need to be login
 router.post("/newlist", (req, res) => {
+    console.log("hello");
     var listName = req.body.name;
     var newList = {
         user: req.user.username,
@@ -15,31 +16,40 @@ router.post("/newlist", (req, res) => {
     if (req.user.username && listName) {
         VocabList.create(newList)
             .then(data => res.json(data))
-            .catch(next);
+            .catch(console.log("Error !!!!"));
     }
-    else{
+    else {
         res.json({ error: "The item field is empty" })
     }
 });
 // adding new vocab words after making a new vocablist
 // need to send in a object with the vocablist id and
-//  the words with definition in a array of objects {id: "", vocab: [{word: "", definition: ""}]}
-router.post("/newvocab", (req, res) => {
+//  the words with definition in a array of objects {id: "", vocab: {word: "", definition: ""}}
+router.put("/newvocab", (req, res) => {
     var newListId = req.body.id;
-    var {word, definition} = req.body.vocab;
+    var { word, definition } = req.body.vocab;
     VocabList.findByIdAndUpdate(
         newListId,
-        {$push: {"vocab": {word: word, definition: definition}}},
-        function(err, result) {
-            if(err){
+        { $push: { "vocab": { word: word, definition: definition } } },
+        function (err, result) {
+            if (err) {
                 res.json(err);
             }
-            else{
+            else {
                 res.json(result);
             }
         }
     );
 });
+// gets all the information about a set of vocab words
+router.get("/vocablistinfo/:id", (req, res) => {
+    var id = req.params.id;
+    VocabList.findById(id)
+        .then(data => res.json(data))
+        .catch(console.log("Error !!!!"));
+});
+
+
 // add a new user route
 router.post('/', (req, res) => {
     const { username, password } = req.body
