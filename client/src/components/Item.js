@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Input from './Input';
 import ListItems from './ListItems';
-import Card from './card';
 
 function Item() {
     const [items, setItems] = useState([]);
@@ -35,7 +34,6 @@ function Item() {
     return (
         <div>
             <h1>Shopping List</h1>
-            
             <Input getItems={getItems} />
             <ListItems items={items} deleteItem={deleteItem} />
         </div>
