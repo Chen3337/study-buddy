@@ -1,10 +1,15 @@
 // everything will go here before index.js
 // routes
+import React from 'react';
+import Menu from './layout/Layout.js';
+function App() {
 
-import Menu from './layout/layout.js';
 
-render(
-    <div>
-        <Menu />
-    </div>
-)
+    return (
+        <div>
+            <Menu />
+        </div>
+    )
+}
+
+export default App;
