@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
+
 export default class Login extends Component {
+    apicall = () => {
+
+    }
     render() {
         return (
             <form>
-                <h3>Sign In</h3>
+                <h3>Login</h3>
 
                 <div className="form-group">
                     <label>Username</label>
@@ -16,7 +20,7 @@ export default class Login extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" />
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button onClick = {() => this.apicall} type="submit" className="btn btn-primary btn-block">Login</button>
                 
             </form>
         );
