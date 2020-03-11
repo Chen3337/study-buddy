@@ -2,17 +2,17 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import Login from "./login/Login";
 import SignUp from "./signup/Signup";
 import Home from "./home/Home";
 import About from "./about/About";
 
 
+
 function App() {
   return (<Router>
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top" style = {{backgroundColor: "gray"}}>
+      <nav className="navbar navbar-expand-sm navbar-light fixed-top" style = {{backgroundColor: "light-gray"}}>
         <div className="container">
           <Link className="navbar-brand" to={"/sign-in"}>Study Buddy</Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -48,7 +48,5 @@ function App() {
     </div></Router>
   );
 }
-
-
 
 export default App;
