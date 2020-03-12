@@ -19,7 +19,7 @@ export default class SignUp extends Component {
  }  
  handleChange = (e) => {
     this.setState({
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value.trim()
     })
 }
  render() {
@@ -32,7 +32,7 @@ export default class SignUp extends Component {
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password"name="password" value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Enter password" />
+                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Enter password" />
                 </div>
                 <button onClick = {(e) => this.apicall(e)} type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="member">
