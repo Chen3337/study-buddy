@@ -6,14 +6,12 @@ import Login from "./login/Login";
 import SignUp from "./signup/Signup";
 import Home from "./home/home";
 import About from "./about/About";
-import Navbar from './navbar/navbar';
-
+import Vocab from './vocabs/Addnewcards';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Switch>
@@ -22,6 +20,7 @@ function App() {
               <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
               <Route path="/about" component={About} />
+              <Route path="/new-vocabulary" component={Vocab} />
             </Switch>
           </div>
         </div>
