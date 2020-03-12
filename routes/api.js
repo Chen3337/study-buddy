@@ -5,6 +5,7 @@ const User = require('../models/passport/user');
 const passport = require('../models/passport/passportuser');
 // adding new vocabList
 // need to send in a object {name: ""} need to be login
+var username;
 router.post("/newlist", (req, res) => {
     console.log("hello");
     var listName = req.body.name;
@@ -108,13 +109,14 @@ router.post(
         var userInfo = {
             username: req.user.username
         };
+        username = userInfo;
         res.send(userInfo);
     }
 )
 // get the username
 router.get('/', (req, res, next) => {
-    if (req.user) {
-        res.json({ user: req.user })
+    if (username) {
+        res.json({ user: username })
     } else {
         res.json({ user: null })
     }
