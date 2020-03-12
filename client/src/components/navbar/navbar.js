@@ -8,10 +8,7 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-link" to={"/sign-in"}>Login</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
+            <Link className="nav-link" to={"/new-vocabulary"}>new vocabulary list</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to={"/home"}>Home </Link>
