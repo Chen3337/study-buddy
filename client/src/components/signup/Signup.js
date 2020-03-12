@@ -7,11 +7,14 @@ export default class SignUp extends Component {
     }
  apicall = (event) => {
      event.preventDefault();
-     console.log("hi")
      var data = {username: this.state.username, password: this.state.password};
     axios.post('/api/', data)
     .then((results) => {
-        console.log(results);
+        if(results.status === 200){
+            window.location.href = '/sign-in';
+        }
+    }).catch((err) =>{
+        console.log(err);
     })
  }  
  handleChange = (e) => {
