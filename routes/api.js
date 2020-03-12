@@ -61,7 +61,7 @@ router.delete("/vocabword", (req, res) => {
 // if there is no user name in the url it will return all vocab list in the database
 router.get("/allvocablist/:user", (req, res) => {
     var user = req.params.user;
-    if (name) {
+    if (user) {
         VocabList.find({user : user})
             .then(data => res.json(data))
             .catch(console.log("Error !!!!"));

@@ -6,7 +6,7 @@ import Login from "./login/Login";
 import SignUp from "./signup/Signup";
 import Home from "./home/home";
 import About from "./about/About";
-import Vocab from './vocabs/Addnewcards';
+// import Vocab from './vocabs/Addnewcards';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
               <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/new-vocabulary" component={Vocab} />
+              {/* <Route path="/new-vocabulary" component={Vocab} /> */}
             </Switch>
           </div>
         </div>
