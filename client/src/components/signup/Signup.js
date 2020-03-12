@@ -1,24 +1,37 @@
 import React, { Component } from "react";
-import API from "../../utils/API"
+import axios from "axios";
 export default class SignUp extends Component {
- apicall = () => {
-     
+    state = {
+        username: "",
+        password: ""
+    }
+ apicall = (event) => {
+     event.preventDefault();
+     console.log("hi")
+     var data = {username: this.state.username, password: this.state.password};
+    axios.post('/api/', data)
+    .then((results) => {
+        console.log(results);
+    })
  }  
+ handleChange = (e) => {
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
  render() {
         return (
             <form>
                 <h3>Sign Up</h3>
-
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" className="form-control" placeholder="Username" />
+                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} className="form-control" placeholder="Username" />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password"name="password" value={this.state.password} onChange={this.handleChange} className="form-control" placeholder="Enter password" />
                 </div>
-
-                <button onClick = {() => this.apicall} type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                <button onClick = {(e) => this.apicall(e)} type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="member">
                     Already registered? <a href="/sign-in">sign in</a>
                 </p>
