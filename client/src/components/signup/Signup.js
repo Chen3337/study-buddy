@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API"
 export default class SignUp extends Component {
-
-    render() {
+ apicall = () => {
+     
+ }  
+ render() {
         return (
             <form>
                 <h3>Sign Up</h3>
@@ -18,7 +20,7 @@ export default class SignUp extends Component {
 
                 <button onClick = {() => this.apicall} type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="member">
-                    Already registered? <a href="../Login">sign in</a>
+                    Already registered? <a href="/sign-in">sign in</a>
                 </p>
             </form>
         );
