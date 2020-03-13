@@ -14,7 +14,7 @@ export default class About extends Component {
           <div className="container">
             <h1>About Us</h1>
             <p>
-              We believe at Study Buddy
+              We wanted to make an aplication with easy to use tools to study on hard topics. Thats why we made Study Buddy!
               </p>
           </div>
         </Jumbotron>
