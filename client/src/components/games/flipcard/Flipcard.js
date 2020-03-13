@@ -9,6 +9,7 @@ const CardFlip = () => {
         setIsFlipped(!setIsFlipped);
     };
     return (
+        <div>
         <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
           <div style={{backgroundColor : "red", height: 100 , color: "#fff", display: "flex", justifyContent: "center", alignItems: "center"}} >
             This is the front of the card.
@@ -33,9 +34,9 @@ const CardFlip = () => {
           </div>
         </ReactCardFlip>
 
-        
+        </div>
       )
 
 };
 
-ReactDOM.render(<cardFlip/>, document.querySelector("#root"));
+export default CardFlip;
