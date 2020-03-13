@@ -10,11 +10,11 @@ router.post("/newlist", (req, res) => {
     console.log("hello");
     var listName = req.body.name;
     var newList = {
-        user: req.user.username,
+        user: username.username,
         name: listName,
         vocab: []
     }
-    if (req.user.username && listName) {
+    if (username && listName) {
         VocabList.create(newList)
             .then(data => res.json(data))
             .catch(console.log("Error !!!!"));
@@ -51,7 +51,8 @@ router.get("/vocablistinfo/:id", (req, res) => {
         .catch(console.log("Error !!!!"));
 });
 // deleting a word from a set of vocabs
-router.delete("/vocabword", (req, res) => {
+router.put("/vocabword", (req, res) => {
+    console.log(req.body);
     var { vocabListId, vocabWordId } = req.body;
     VocabList.update({ _id: vocabListId }, { $pull: { vocab: { _id: vocabWordId } } })
         .then(data => res.json(data))
