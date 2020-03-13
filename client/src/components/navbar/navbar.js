@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from "react-router-dom";
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-sm navbar-light fixed-top" style={{ backgroundColor: "light-gray" }}>
+    <nav className="navbar navbar-expand-sm navbar-light fixed-top" style={{ color: "white"}}>
       <div className="container">
         <Link className="navbar-brand" to={"/sign-in"}>Study Buddy</Link>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to={"/home"}>Home </Link>
+              <Link className="nav-link" to={"/home"}>Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={"/vocabulary"}>new vocabulary list</Link>
+              <Link className="nav-link" to={"/vocabulary"}>Vocabulary List</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={"/about"}>About </Link>
+              <Link className="nav-link" to={"/about"}>About</Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar/navbar';
 import axios from 'axios';
+
 class vocabulary extends Component {
     state = {
         vocablistName: "",

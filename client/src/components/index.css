@@ -5,11 +5,12 @@
 }
 body {
   padding-top: 65px; 
-  background: rgb(217, 223, 230) !important;
+  background: rgb(63, 85, 133) !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
   font-family: 'Fira Sans', sans-serif;
+  
 }
 
 h1,h2,h3,h4,h5,h6,label,span {
@@ -23,9 +24,18 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .navbar-light {
-  background-color: #fbfbff;
-  box-shadow: 0px 14px 80px rgba(60, 167, 255, 0.836);
+  background-color: #d7dbe0;
+  box-shadow: 0px 14px 80px rgba(35, 44, 209, 0.74);
+  padding-bottom: 10px;
 }
+
+.card-container{
+  color: rgb(62, 74, 112);
+  padding:40px;
+  padding-top: 70px;
+}
+
+
 
 .auth-wrapper {
   display: flex;
@@ -34,18 +44,22 @@ body, html, .App, #root, .auth-wrapper {
   text-align: left;
 }
 
+.container {
+  color: rgb(37, 38, 39);
+}
+
 .auth-inner {
   width: 450px;
   margin: auto;
-  background: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  background: #d3d4d8;
+  box-shadow: 0px 14px 80px rgba(91, 97, 204, 0.952);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
 }
 
 .auth-wrapper .form-control:focus {
-  border-color: #74c7ff;
+  border-color: #174e75;
   box-shadow: none;
 }
 
