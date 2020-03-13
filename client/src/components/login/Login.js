@@ -32,9 +32,8 @@ export default class Login extends Component {
             <div className="App">
                 <div className="auth-wrapper">
                     <div className="auth-inner">
+                    <h1 style={{textAlign:"center"}}>Study Buddy</h1>
                         <form>
-                        
-                        
                             <h3>Login</h3>
 
                             <div className="form-group">

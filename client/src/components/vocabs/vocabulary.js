@@ -130,7 +130,7 @@ class vocabulary extends Component {
                                         <p>definition: {res.definition}</p>
                                     </div>
                                     <div className="col-md-2">
-                                        <button onClick={() => this.deletewordApi(res)}>delete</button>
+                                        <button className="btn btn-danger" onClick={() => this.deletewordApi(res)}>delete</button>
                                     </div>
                                 </div>
                             ))}
@@ -142,7 +142,7 @@ class vocabulary extends Component {
                                     <textarea type="text" name="newvocabDef" value={this.state.newvocabDef} onChange={this.handleChange} rows="1" style={{ width: "100%" }} placeholder="definition here" />
                                 </div>
                                 <div className="col-md-2">
-                                    <button onClick={() => this.addnewwordApi()}>add</button>
+                                    <button className="btn btn-success" onClick={() => this.addnewwordApi()}>add</button>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ class vocabulary extends Component {
                             <div className="container" style={{ width: "80%", margin: "auto" }}>
                                 <b>vocabulary list name :</b>
                                 <input type="text" name="vocablistName" value={this.state.vocablistName} onChange={this.handleChange}></input>
-                                <button onClick={() => this.makelistApi()}>submit</button>
+                                <button className="btn btn-primary" onClick={() => this.makelistApi()}>submit</button>
                             </div>
                         )}
                 </div>
