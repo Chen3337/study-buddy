@@ -33,7 +33,7 @@ export default class Home extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container">
+        <div className="card-container">
           {this.state.vocabularylist.map(res => (
             <div className="col-md-3" style={{float: "left"}}>
               <div className="card" style={{ width: "18rem" }}>

@@ -5,7 +5,7 @@
 }
 body {
   padding-top: 65px; 
-  background: rgb(217, 223, 230) !important;
+  background: rgba(31, 56, 121, 0.699) !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -23,8 +23,8 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .navbar-light {
-  background-color: #fbfbff;
-  box-shadow: 0px 14px 80px rgba(60, 167, 255, 0.836);
+  background-color: #e4e4e9;
+  box-shadow: 0px 14px 80px rgba(51, 99, 233, 0.76);
 }
 
 .auth-wrapper {
@@ -37,7 +37,7 @@ body, html, .App, #root, .auth-wrapper {
 .auth-inner {
   width: 450px;
   margin: auto;
-  background: #ffffff;
+  background: #e0dede;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
@@ -47,6 +47,10 @@ body, html, .App, #root, .auth-wrapper {
 .auth-wrapper .form-control:focus {
   border-color: #74c7ff;
   box-shadow: none;
+}
+
+.card-container {
+  margin: 50px;
 }
 
 .auth-wrapper h3 {
