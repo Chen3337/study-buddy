@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Letters from './letters';
 import Guessline from './guessingline';
 class Container extends Component {
-    // the vocab need to be pass into this 
-    // example
-    //  vocab: [{word:"something", definition:"something"},{word:"something", definition:"something"}]
     state = {
         wrong: 0,
         score: 0,
@@ -143,8 +140,7 @@ class Container extends Component {
     render() {
         return (
             <div>
-
-                <div style={{ textAlign: "center", width: "400px", height: "500px", border: "solid black 2px" }}>
+                <div style={{ textAlign: "center", width: "400px", height: "530px", border: "solid black 2px", margin: "auto", backgroundColor: "white"}}>
                     <div style={{ width: "100%", height: "30px" }}>
                         <p>{this.state.definition}</p>
                     </div>

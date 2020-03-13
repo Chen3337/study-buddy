@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar/navbar';
 import axios from 'axios';
-
 class vocabulary extends Component {
     state = {
         vocablistName: "",
@@ -11,9 +10,9 @@ class vocabulary extends Component {
         vocabWords: [],
         newvocabWord: "",
         newvocabDef: "",
+        locationNow: window.location.pathname,
     }
     componentDidMount() {
-
         axios.get('/api/')
             .then((results) => {
                 if (results.data.user === null) {
@@ -101,6 +100,9 @@ class vocabulary extends Component {
                     this.getAllWords();
                 }
             }
+        }
+        if(this.state.locationNow !== window.location.pathname){
+            window.location.reload();
         }
         return (
             <div>

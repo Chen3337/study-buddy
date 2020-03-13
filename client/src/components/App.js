@@ -5,7 +5,7 @@ import SignUp from "./signup/Signup";
 import Home from "./home/home";
 import About from "./about/About";
 import Vocab from './vocabs/vocabulary';
-
+import Game from './games/gameContainer';
 function App() {
   return (
     <Router>
@@ -17,6 +17,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/vocabulary" component={Vocab} />
           <Route path="/vocabulary/:id" component={Vocab} />
+          <Route path="/games/:game/:id" component={Game} />
         </Switch>
     </Router>
   );

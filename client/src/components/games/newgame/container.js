@@ -106,7 +106,7 @@ class Game extends Component {
                     }
                 }
             }
-            else{
+            else {
                 this.setState({
                     guessingStatus: this.state.guessLetter.slice(),
                     Letters: [],
@@ -303,28 +303,28 @@ class Game extends Component {
     }
     render() {
         return (
-            <div style={{ display: "inline-block", border: "solid 1px black", width: "401px", height: "600px" }}>
-                <div style={{ width: "100%", height: "30px" }}>
-                    <p>{this.state.vocabNow.definition}</p>
+                <div style={{ textAlign: "center", border: "1px solid black", width: "401px", height: "600px", margin: "auto", backgroundColor: "white" }}>
+                    <div style={{ width: "100%", height: "30px" }}>
+                        <p>{this.state.vocabNow.definition}</p>
+                    </div>
+                    <div style={{ display: "inline-block", border: "1px solid  black", width: "400px", height: "400px" }}>
+                        <canvas ref="canvas"
+                            width={400}
+                            height={400}
+                            style={{ backgroundColor: "skyblue" }}
+                        />
+                    </div>
+                    <Guessline guessStatus={this.state.guessingStatus} />
+                    <div>
+                        <button disabled={this.state.startNewWord} onClick={() => this.startgame()}>new word</button>
+                        <button disabled={this.state.restartgame} onClick={() => this.restartGame()}>restart</button>
+                        <button onMouseDown={() => this.move(true, "up")} onMouseUp={() => this.move(false)}>up</button>
+                        <button onMouseDown={() => this.move(true, "down")} onMouseUp={() => this.move(false)}>down</button>
+                        <button onMouseDown={() => this.move(true, "left")} onMouseUp={() => this.move(false)}>left</button>
+                        <button onMouseDown={() => this.move(true, "right")} onMouseUp={() => this.move(false)}>right</button>
+                    </div>
+                    <b>score: {this.state.score}/{this.props.vocab.length}</b>
                 </div>
-                <div style={{ display: "inline-block", border: "solid 1px black", width: "400px", height: "400px" }}>
-                    <canvas ref="canvas"
-                        width={400}
-                        height={400}
-                        style={{ backgroundColor: "skyblue" }}
-                    />
-                </div>
-                <Guessline guessStatus={this.state.guessingStatus} />
-                <div>
-                    <button disabled={this.state.startNewWord} onClick={() => this.startgame()}>new word</button>
-                    <button disabled={this.state.restartgame} onClick={() => this.restartGame()}>restart</button>
-                    <button onMouseDown={() => this.move(true, "up")} onMouseUp={() => this.move(false)}>up</button>
-                    <button onMouseDown={() => this.move(true, "down")} onMouseUp={() => this.move(false)}>down</button>
-                    <button onMouseDown={() => this.move(true, "left")} onMouseUp={() => this.move(false)}>left</button>
-                    <button onMouseDown={() => this.move(true, "right")} onMouseUp={() => this.move(false)}>right</button>
-                </div>
-                <b>score: {this.state.score}/{this.props.vocab.length}</b>
-            </div>
         );
     }
 }
