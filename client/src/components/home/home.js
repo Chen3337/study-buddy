@@ -52,7 +52,7 @@ export default class Home extends Component {
           {this.state.vocabularylist.length ?
              <div></div>
              : 
-             <h1>New? add new vocabulary list 2 <a href="/vocabulary">HERE</a></h1>
+             <h1>New? add new vocabulary list <a href="/vocabulary">HERE</a></h1>
           }
         </div>
 

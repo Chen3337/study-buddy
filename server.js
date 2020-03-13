@@ -8,6 +8,7 @@ const passport = require('./models/passport/passportuser');
 require('dotenv').config();
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 const port = process.env.PORT || 3001;
 
 mongoose.connect(process.env.DB,
@@ -23,6 +24,9 @@ app.use(passport.session());
 
 app.use(bodyParser.json());
 app.use('/api', routes);
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
 app.use((err, req, res, next) => {
     console.log(err);
     res.header("Access-Control-Allow-Origin", "*");

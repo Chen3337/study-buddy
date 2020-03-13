@@ -12,6 +12,9 @@ class Game extends Component {
         if (this.props.match.params.game === "hangman") {
             axios.get(`/api/vocablistinfo/${this.props.match.params.id}`)
                 .then((results) => {
+                    if(results.data.vocab.length === 0){
+                        window.location.href = `/vocabulary/${this.props.match.params.id}`;
+                    }
                     game = <Hangman vocab={results.data.vocab} />;
                     this.setState({
                         game: game
@@ -21,6 +24,9 @@ class Game extends Component {
         else if (this.props.match.params.game === "newgame") {
             axios.get(`/api/vocablistinfo/${this.props.match.params.id}`)
                 .then((results) => {
+                    if(results.data.vocab.length === 0){
+                        window.location.href = `/vocabulary/${this.props.match.params.id}`;
+                    }
                     game = <Newgame vocab={results.data.vocab} />
                     this.setState({
                         game: game

@@ -316,7 +316,7 @@ class Game extends Component {
     }
     render() {
         return (
-                <div style={{ textAlign: "center", border: "1px solid black", width: "401px", height: "600px", margin: "auto", backgroundColor: "white" }}>
+                <div style={{ textAlign: "center", border: "1px solid black", width: "401px", height: "640px", margin: "auto", backgroundColor: "white" }}>
                     <div style={{ width: "100%", height: "30px" }}>
                         <p>{this.state.vocabNow.definition}</p>
                     </div>
@@ -329,17 +329,18 @@ class Game extends Component {
                     </div>
                     <Guessline guessStatus={this.state.guessingStatus} />
                     <div>
-                        <button disabled={this.state.startNewWord} onClick={() => this.startgame()}>new word</button>
-                        <button disabled={this.state.restartgame} onClick={() => this.restartGame()}>restart</button>
-                        <button onMouseDown={() => this.move(true, "up")} onMouseUp={() => this.move(false)}>up</button>
-                        <button onMouseDown={() => this.move(true, "down")} onMouseUp={() => this.move(false)}>down</button>
-                        <button onMouseDown={() => this.move(true, "left")} onMouseUp={() => this.move(false)}>left</button>
-                        <button onMouseDown={() => this.move(true, "right")} onMouseUp={() => this.move(false)}>right</button>
-                        <button onMouseUp={() => this.spaceHit()}>shoot</button>
+                        <button className="btn btn-primary" onMouseDown={() => this.move(true, "up")} onMouseUp={() => this.move(false)}>up</button>
+                        <button className="btn btn-primary" onMouseDown={() => this.move(true, "down")} onMouseUp={() => this.move(false)}>down</button>
+                        <button className="btn btn-primary" onMouseDown={() => this.move(true, "left")} onMouseUp={() => this.move(false)}>left</button>
+                        <button className="btn btn-primary" onMouseDown={() => this.move(true, "right")} onMouseUp={() => this.move(false)}>right</button>
+                        <button className="btn btn-primary" onMouseUp={() => this.spaceHit()}>shoot</button>
+                        <br />
+                        <button className="btn btn-success" disabled={this.state.startNewWord} onClick={() => this.startgame()}>new word</button>
+                        <button className="btn btn-secondary" disabled={this.state.restartgame} onClick={() => this.restartGame()}>restart</button>
                     </div>
                     <b>score: {this.state.score}/{this.props.vocab.length}</b>
                     <div>
-                    <button onClick={() => this.ruleSwitch()} >rules</button>
+                    <button className="btn btn-info" onClick={() => this.ruleSwitch()} >rules</button>
                         <ol style={{backgroundColor:"white", display: this.state.rules}}>
                             <li>click on the buttons to move or use the keyboard arrowkeys and space</li>
                             <li>move character to eat the letter bubbles and it have to be in order</li>
