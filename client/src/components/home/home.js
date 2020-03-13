@@ -44,7 +44,7 @@ export default class Home extends Component {
                   <a href={`/vocabulary/${res._id}`} className="list-group-item">Edit vocabulary words</a>
                   <a href={`/delvocabulary/${res.name}/${res._id}`} className="list-group-item" style={{ color: "red" }}>Delete Vocabulary list</a>
                   <a href={`/games/hangman/${res._id}`} className="list-group-item">hangman</a>
-                  <a href={`/games/newgame/${res._id}`} className="list-group-item">new game</a>
+                  <a href={`/games/newgame/${res._id}`} className="list-group-item">Word tank</a>
                 </ul>
               </div>
             </div>
