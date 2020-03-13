@@ -154,8 +154,8 @@ class Container extends Component {
                     <div>
                         <b>score: {this.state.score}/{this.state.vocab.length}</b>
                         <br />
-                        <button disabled={this.state.startGame} onClick={() => this.startnewvocab()}>new vocabulary</button>
-                        <button disabled={this.state.restartGame} onClick={() => this.restart()}>restart</button>
+                        <button disabled={this.state.startGame} className="btn btn-primary" onClick={() => this.startnewvocab()}>new vocabulary</button>
+                        <button disabled={this.state.restartGame} className="btn btn-primary" onClick={() => this.restart()}>restart</button>
 
                     </div>
                 </div>
