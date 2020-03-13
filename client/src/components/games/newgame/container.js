@@ -25,6 +25,7 @@ class Game extends Component {
             powerupCir: [],
             extraLetters: [],
             bullet: null,
+            rules: "none"
         }
     }
     componentDidMount() {
@@ -301,6 +302,18 @@ class Game extends Component {
             extraLetters: [],
         });
     }
+    ruleSwitch = () => {
+        if(this.state.rules === "none"){
+            this.setState({
+                rules: "inline-block"
+            })
+        }
+        else{
+            this.setState({
+                rules: "none"
+            })
+        }
+    }
     render() {
         return (
                 <div style={{ textAlign: "center", border: "1px solid black", width: "401px", height: "600px", margin: "auto", backgroundColor: "white" }}>
@@ -322,8 +335,19 @@ class Game extends Component {
                         <button onMouseDown={() => this.move(true, "down")} onMouseUp={() => this.move(false)}>down</button>
                         <button onMouseDown={() => this.move(true, "left")} onMouseUp={() => this.move(false)}>left</button>
                         <button onMouseDown={() => this.move(true, "right")} onMouseUp={() => this.move(false)}>right</button>
+                        <button onMouseUp={() => this.spaceHit()}>shoot</button>
                     </div>
                     <b>score: {this.state.score}/{this.props.vocab.length}</b>
+                    <div>
+                    <button onClick={() => this.ruleSwitch()} >rules</button>
+                        <ol style={{backgroundColor:"white", display: this.state.rules}}>
+                            <li>click on the buttons to move or use the keyboard arrowkeys and space</li>
+                            <li>move character to eat the letter bubbles and it have to be in order</li>
+                            <li>there is three extra letter other than the word you can shoot them to destory it</li>
+                            <li>powerups green will help you eat the next right letter, red will destory one of the extra letters if all extra letters destory it you will win this round</li>
+                        </ol>
+                        
+                    </div>
                 </div>
         );
     }
