@@ -12,15 +12,26 @@ class vocabulary extends Component {
         newvocabDef: "",
     }
     componentDidMount() {
+
         axios.get('/api/')
             .then((results) => {
                 if (results.data.user === null) {
                     window.location.href = "/"
                 }
                 else {
-                    this.setState({
-                        username: results.data.user.username
-                    })
+                    if (this.props.match.params.id) {
+                        
+                        this.setState({
+                            username: results.data.user.username,
+                            vocablistId: this.props.match.params.id,
+                            startaddVocabs: true,
+                        })
+                    }
+                    else {
+                        this.setState({
+                            username: results.data.user.username
+                        })
+                    }
                 }
             }).catch((err) => {
                 console.log(err);
@@ -55,6 +66,7 @@ class vocabulary extends Component {
                 definition: this.state.newvocabDef
             }
         }
+        console.log(data);
         axios.put('/api/newvocab', data)
             .then((results) => {
                 this.getAllWords();
@@ -64,6 +76,7 @@ class vocabulary extends Component {
         axios.get(`/api/vocablistinfo/${this.state.vocablistId}`)
             .then((results) => {
                 this.setState({
+                    vocablistName: results.data.name,
                     vocabWords: results.data.vocab,
                     newvocabWord: "",
                     newvocabDef: "",
@@ -81,6 +94,13 @@ class vocabulary extends Component {
             })
     }
     render() {
+        if (this.state.vocablistId !== "") {
+            if (this.state.startaddVocabs) {
+                if (this.state.vocablistName === "") {
+                    this.getAllWords();
+                }
+            }
+        }
         return (
             <div>
                 <Navbar />

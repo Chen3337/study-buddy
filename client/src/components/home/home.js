@@ -35,8 +35,18 @@ export default class Home extends Component {
         <Navbar />
         <div className="container">
           {this.state.vocabularylist.map(res => (
-            <div className="col-md-6">
-
+            <div className="col-md-3" style={{float: "left"}}>
+              <div className="card" style={{ width: "18rem" }}>
+                <div className="card-header">
+                  <h3>{res.name}</h3>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <a href={`/vocabulary/${res._id}`} className="list-group-item">Edit vocabulary words</a>
+                  <li className="list-group-item">flip cards</li>
+                  <li className="list-group-item">hangman</li>
+                  <li className="list-group-item">new game</li>
+                </ul>
+              </div>
             </div>
           ))}
         </div>
