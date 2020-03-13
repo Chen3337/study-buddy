@@ -73,7 +73,12 @@ router.get("/allvocablist/:user", (req, res) => {
             .catch(console.log("Error !!!!"));
     }
 });
-
+router.delete("/vocablist/:id", (req, res) => {
+    var id = req.params.id;
+    VocabList.deleteOne({_id : id})
+        .then(data => res.json(data))
+        .catch(console.log("Error !!!!"));
+});
 
 // add a new user route
 router.post('/', (req, res) => {
