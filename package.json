@@ -1,7 +1,7 @@
 {
-  "name": "shoppinglist",
+  "name": "study-buddy",
   "version": "1.0.0",
-  "description": "a shopping list",
+  "description": "help you learn vocabs",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

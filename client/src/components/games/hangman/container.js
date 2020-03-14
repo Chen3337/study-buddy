@@ -20,7 +20,7 @@ class Container extends Component {
         var whichWord = Math.floor(Math.random() * vocableft.length);
         var { word, definition } = vocableft[whichWord];
         vocableft.splice(whichWord, 1);
-        word = word.trim();
+        word = word.toLowerCase().trim();
         var guessLines = [];
         for (var i = 0; i < word.length; i++) {
             guessLines.push("__");

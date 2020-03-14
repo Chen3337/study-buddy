@@ -197,7 +197,7 @@ class Game extends Component {
         }
     }
     makeLetters = (vocabNow, vocableft) => {
-        var vocabword = vocabNow.word.trim();
+        var vocabword = vocabNow.word.toLowerCase().trim();
         var guessingStatus = [];
         for (var i = 0; i < vocabword.length; i++) {
             guessingStatus.push("__");
@@ -280,12 +280,18 @@ class Game extends Component {
         var restart;
         if (this.state.score === this.props.vocab.length) {
             restart = false;
+            this.setState({
+                restartgame: restart,
+                startNewWord: true,
+            })
         } else {
             restart = true;
+            this.setState({
+                restartgame: restart,
+            })
         }
-        this.setState({
-            restartgame: restart,
-        })
+        
+        
     }
     restartGame = () => {
         this.setState({
