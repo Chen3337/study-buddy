@@ -1,3 +1,5 @@
+# project
+deploy(https://study-buddi.herokuapp.com/).
 # study-buddy
 
  Our Study Buddy application is a resource that helps people who are trying out new ways to study for a test or practice their vocabulary. 
